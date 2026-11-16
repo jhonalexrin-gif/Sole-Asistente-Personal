@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: sole-groq
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SOLE_CLIENT_TOKEN
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+
